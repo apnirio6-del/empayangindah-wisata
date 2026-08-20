@@ -1,0 +1,52 @@
+<!doctype html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Empayangindah.wisata - Open Trip dan Shuttle Bus"><title>Empayangindah.wisata</title><link rel="stylesheet" href="assets/style.css"></head>
+<body><header class="topbar"><div class="container nav"><a class="brand" href="#"><img src="assets/images/logo.png" alt="Empayangindah.wisata" class="brand-logo"><span>EMPAYANGINDAH<span class="gold">.WISATA</span></span></a><nav><a href="#open-trip">Open Trip</a><a href="#shuttle">Shuttle</a><a href="#booking">Booking</a><a href="admin.html" class="nav-admin">Dashboard</a></nav></div></header>
+<main><section class="hero">
+  <div class="container hero-single">
+    <div class="hero-copy">
+      <p class="eyebrow">PERJALANAN NYAMAN • AMAN • TERPERCAYA</p>
+      <h1>Jelajahi Indonesia dengan <span class="gold">lebih nyaman.</span></h1>
+      <p class="lead">Open Trip dan Shuttle Bus untuk perjalanan Anda. Pilih destinasi, jadwal, lalu booking dalam beberapa langkah.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#booking">Booking Sekarang</a>
+        <a class="btn ghost" href="#jadwal">Lihat Jadwal</a>
+      </div>
+      <div class="stats">
+        <div><strong>24/7</strong><span>Layanan</span></div>
+        <div><strong>100%</strong><span>Konfirmasi</span></div>
+        <div><strong>Nyaman</strong><span>Perjalanan</span></div>
+      </div>
+    </div>
+
+    <div class="hero-brand-card">
+      <div class="hero-logo-ring">
+        <img src="assets/images/logo.png" alt="Logo Empayangindah.wisata" class="hero-logo-integrated">
+      </div>
+      <div class="hero-message">
+        <span class="badge">OPEN TRIP</span>
+        <h2>Petualangan dimulai di sini</h2>
+        <p>Rencanakan perjalanan bersama keluarga, teman, atau komunitas.</p>
+        <a class="btn primary" href="#open-trip">Lihat Open Trip</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="open-trip" class="section"><div class="container"><div class="section-head"><div><p class="eyebrow">PILIH PERJALANAN</p><h2>Open Trip</h2></div><span class="muted">Gambar destinasi dapat diganti dari Dashboard</span></div><div id="trip-list" class="cards"></div></div></section>
+<section id="shuttle" class="section alt"><div class="container"><div class="section-head"><div><p class="eyebrow">ANTAR KOTA</p><h2>Shuttle Bus</h2></div><span class="muted">Praktis dan nyaman</span></div><div id="shuttle-list" class="cards"></div></div></section>
+<section id="jadwal" class="section"><div class="container"><div class="section-head"><div><p class="eyebrow">JADWAL</p><h2>Keberangkatan</h2></div></div><div id="schedule-list" class="schedule-list"></div></div></section>
+<section id="booking" class="section alt"><div class="container booking-wrap"><div><p class="eyebrow">BOOKING ONLINE</p><h2>Pesan perjalanan Anda</h2><p class="muted">Isi data di bawah. Sistem membuat kode booking dan invoice otomatis.</p><div class="notice">Setelah booking tersimpan, Anda akan otomatis diarahkan ke WhatsApp untuk instruksi pembayaran dan konfirmasi.</div></div><form id="booking-form" class="form-card"><label>Nama lengkap<input name="name" required placeholder="Nama penumpang"></label><label>WhatsApp<input name="phone" required placeholder="08xxxxxxxxxx"></label><label>Jenis perjalanan<select name="type" id="booking-type"><option>Open Trip</option><option>Shuttle Bus</option></select></label><label>Rute<select name="route" id="booking-route" required></select></label><div class="two"><label>Tanggal<input name="date" type="date" required></label><label>Jumlah penumpang<input name="qty" type="number" min="1" max="20" value="1" required></label></div><label>Titik jemput<input name="pickup" placeholder="Terminal / Hotel / Meeting point" required></label><label>Catatan<textarea name="note" rows="3" placeholder="Permintaan khusus (opsional)"></textarea></label><button class="btn primary full" type="submit">Buat Booking & Invoice</button><p id="form-message" class="form-message"></p></form></div></section></main>
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <div class="brand"><img src="assets/images/logo.png" alt="" class="brand-logo small">
+        <span>EMPAYANGINDAH<span class="gold">.WISATA</span></span>
+      </div>
+      <p id="company-address" class="footer-address">Lokasi perusahaan belum diatur.</p>
+    </div>
+    <div class="footer-contact">
+      <a id="company-phone" href="#">Telepon</a>
+      <a id="company-tiktok" href="#" target="_blank" rel="noopener">TikTok</a>
+      <a id="company-instagram" href="#" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <span>© 2026 Empayangindah.wisata</span>
+  </div>
+</footer><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="assets/config.js"></script><script src="assets/app.js"></script></body></html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Dashboard - Empayangindah.wisata</title><link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar"><div class="container nav">
+<a class="brand" href="index.html"><img src="assets/images/logo.png" alt="Empayangindah.wisata" class="brand-logo"><span>EMPAYANGINDAH<span class="gold">.WISATA</span></span></a>
+<a class="btn ghost nav-back" href="index.html">← <span>Website</span></a>
+</div></header>
+
+<main class="section"><div class="container">
+<section id="login-panel" class="login-card">
+<img src="assets/images/logo.png" class="login-logo" alt="Logo">
+
+<div id="setup-panel">
+  <p class="eyebrow">PENGATURAN AWAL</p>
+  <h1>Buat Akun Admin</h1>
+  <p class="muted">Ini adalah pertama kali website dipasang. Buat akun admin Anda sendiri sebelum mengelola website.</p>
+  <label>Nama Admin
+    <input id="setup-name" type="text" autocomplete="name" placeholder="Contoh: Admin Empayangindah">
+  </label>
+  <label>Email / Username
+    <input id="setup-username" type="text" autocomplete="username" placeholder="Email atau username admin">
+  </label>
+  <label>Password
+    <div class="password-wrap"><input id="setup-password" type="password" autocomplete="new-password" placeholder="Minimal 8 karakter"><button type="button" id="setup-toggle" class="eye-btn">Lihat</button></div>
+  </label>
+  <label>Konfirmasi Password
+    <input id="setup-confirm" type="password" autocomplete="new-password" placeholder="Ulangi password">
+  </label>
+  <button type="button" id="create-admin-btn" class="btn primary full">Buat Akun Admin</button>
+  <p id="setup-msg" class="form-message"></p>
+  <p class="login-hint">Akun hanya dibuat sekali pada browser ini. Simpan email/username dan password Anda.</p>
+</div>
+
+<div id="signin-panel" style="display:none">
+  <p class="eyebrow">AREA ADMIN</p>
+  <h1>Login Admin</h1>
+  <p class="muted">Masuk menggunakan akun admin yang Anda buat saat pemasangan pertama.</p>
+  <label>Email / Username
+    <input id="login-username" type="text" autocomplete="username" placeholder="Email atau username">
+  </label>
+  <label>Password
+    <div class="password-wrap"><input id="admin-password" type="password" autocomplete="current-password" placeholder="Masukkan password"><button type="button" id="toggle-password" class="eye-btn">Lihat</button></div>
+  </label>
+  <button type="button" id="login-btn" class="btn primary full">Masuk Dashboard</button>
+  <p id="login-msg" class="form-message"></p>
+  <p class="login-hint">Akun tersimpan online di database Supabase, bukan di browser.</p>
+</div>
+</section>
+
+<section id="dashboard" class="dashboard-panel" style="display:none">
+<div class="section-head"><div><p class="eyebrow">ADMIN</p><h1>Dashboard</h1><p class="muted">Semua perubahan disimpan pada perangkat admin.</p></div><button id="logout-btn" class="btn ghost">Keluar</button></div>
+
+<div class="table-card admin-editor">
+<div class="table-title"><div><h2>Akun Admin</h2><span class="muted">Akun yang dibuat saat pemasangan pertama.</span></div></div>
+<div class="account-summary">
+  <strong id="admin-account-name">Admin</strong>
+  <span id="admin-account-username" class="muted"></span>
+</div>
+<div class="admin-form-grid">
+  <label>Password Baru<input id="new-admin-password" type="password" minlength="8" placeholder="Minimal 8 karakter"></label>
+  <label>Konfirmasi Password Baru<input id="new-admin-confirm" type="password" minlength="8" placeholder="Ulangi password"></label>
+</div>
+<button id="change-password-btn" class="btn primary">Ganti Password</button>
+<span id="password-saved" class="saved"></span>
+</div>
+
+<div class="admin-stats">
+<div class="stat-card"><span>Total Booking</span><strong id="total-booking">0</strong></div>
+<div class="stat-card"><span>Menunggu</span><strong id="pending-booking">0</strong></div>
+<div class="stat-card"><span>Estimasi Pendapatan</span><strong id="revenue">Rp0</strong></div>
+</div>
+
+<div class="table-card admin-editor">
+<div class="table-title"><div><h2>Pengaturan Perusahaan</h2><span class="muted">Informasi ini tampil di bagian bawah website.</span></div></div>
+<div class="admin-form-grid">
+<label>Lokasi / Alamat Perusahaan<textarea id="company-address-input" rows="3" placeholder="Contoh: Jl. ..."></textarea></label>
+<label>No. Telepon / WhatsApp<input id="company-phone-input" placeholder="08xxxxxxxxxx"></label>
+<label>Link TikTok<input id="company-tiktok-input" placeholder="https://www.tiktok.com/@nama"></label>
+<label>Link Instagram<input id="company-instagram-input" placeholder="https://www.instagram.com/nama"></label>
+</div>
+<button id="save-company" class="btn primary">Simpan Informasi Perusahaan</button><span id="company-saved" class="saved"></span>
+</div>
+
+<div class="table-card admin-editor">
+<div class="table-title"><div><h2>Kelola Open Trip & Shuttle</h2><span class="muted">Admin bisa mengubah dari mana, ke mana, tanggal, jam, harga, kursi, dan gambar.</span></div>
+<button id="add-trip" class="btn primary">+ Tambah Perjalanan</button></div>
+<div id="trip-manager" class="admin-trip-manager"></div>
+</div>
+
+<div class="table-card">
+<div class="table-title"><h2>Daftar Booking</h2><button id="export-btn" class="btn primary">Export CSV</button></div>
+<div class="table-scroll"><table><thead><tr><th>Kode</th><th>Nama</th><th>Rute</th><th>Berangkat</th><th>Tanggal</th><th>Qty</th><th>Total</th><th>Status</th></tr></thead>
+<tbody id="booking-table"></tbody></table></div></div>
+</section>
+</div></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="assets/config.js"></script><script src="assets/admin.js"></script>
+</body></html>
